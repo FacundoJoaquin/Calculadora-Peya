@@ -5,7 +5,7 @@ const kmPuntEnt = 55;
 
 let nombre = null;
 
-/* while (!nombre) {
+while (!nombre) {
     nombre = prompt("Hola, ¿cómo te llamas?");
     if (!/^[a-zA-Z]+$/.test(nombre)) {
         alert("Por favor, ingrese su nombre.");
@@ -13,7 +13,7 @@ let nombre = null;
     } else {
         console.log("Hola " + nombre + ", un gusto saludarte!.")
     }
-} */
+}
 
 let ranking
 let cobroKM = 15
