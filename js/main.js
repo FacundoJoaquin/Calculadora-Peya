@@ -34,20 +34,16 @@ function rank() {
     switch (ranking) {
         case "1":
             cobroKM = cobroKM + 14;
-            console.log("Te pagarán $" + cobroKM + " por KM.")
             break;
         case "2":
             cobroKM = cobroKM + 12;
-            console.log("Te pagarán $" + cobroKM + " por KM.")
             break;
         case "3":
         case "4":
             cobroKM = cobroKM + 8;
-            console.log("Te pagarán $" + cobroKM + " por KM.")
             break;
         default:
             cobroKM = cobroKM
-            console.log("Te pagarán $" + cobroKM + " por KM.")
             break;
     }
     return ranking
@@ -63,7 +59,7 @@ function pedidoRecibido() {
     suma = puntoEntrega + puntoRetiro + kmPuntRet + cobroKmTotal; /* monto por pedido */
     let nuevoPedido = {numero: numero, kilometros: kilometros, suma: suma}
     arrayPedido.push(nuevoPedido);
-    console.log(nombre + "te pagarían por realizar el pedido apróximadamente " + suma + " pesos");
+    console.log(nombre + ", te pagarían por realizar el pedido apróximadamente " + suma + " pesos");
     continuar = confirm("¿Desea añadir otro pedido?")
     if (continuar) {
         pedidoRecibido()
@@ -74,6 +70,6 @@ function pedidoRecibido() {
         }
         console.log("Estos son tus pedidos:");
         console.table(arrayPedido);
-        console.log("El total a pagar por los pedidos es de: $" + totalSuma + " pesos");
+        console.log(nombre + ", el total a pagar por los pedidos es de: $" + totalSuma + " pesos");
     }
 }
