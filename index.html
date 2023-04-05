@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="js/main.js"></script>
+    <script defer src="js/templates.js"></script>
+    <script defer src="js/main.js"></script>
+        <script defer src="js/dom.js"></script>
 </head>
 
 <body>
@@ -19,6 +21,28 @@
     </header>
 
     <body>
+        <div class="pedidos">
+            <p>Pedido Nro: <br></p>
+            <p>Kilometros recorridos: <br></p>
+            <p>Monto abonado: <br></p>
+        </div>
+        <div>
+            <form id="formulario">
+                <input class="input-name" type="text" placeholder="Nombre" required>
+                <input class="input-rnk" type="text" placeholder="Ranking" required>
+                <button class="input-btn" type="submit" value="enviar">
+            </form>
+        </div>
+        <div class="form-pedidos ocultar">
+            <form id="pedidos">
+                <input type="text" class="km-retiro" placeholder="Distancia hasta punto de retiro">
+                <input type="text" class="km-entrega" placeholder="Distancia hasta punto de entrega">
+                <button class="pedido-btn" type="submit" value="enviar">
+            </form>
+        </div>
+        <div id="pedidosCargados">
+
+        </div>
         <div class="explicacion">
             <p>¿Cómo andas? espero que bien, te comento, yo actualmente trabajo para PedidosYa, sinceramente entre las
                 miles falencias que tiene la aplicación, uno de los peores es la falta de claridad al momento del pago,

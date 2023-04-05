@@ -99,3 +99,67 @@ span {
     width: 100%;
     background-color: #00d9fc;
 }
+
+
+form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-name , .input-rnk {
+    width: 300px;
+    height: 30px;
+    background-color: #FFF;
+    margin: 5px 0;
+    border-radius: 5px;
+    outline: none;
+}
+.input-btn {
+    width: 150px;
+    height: 20px;
+    background-color: #00d9fc;
+}
+
+.pedidos {
+    height: 200px;
+    width: 200px;
+    background-color: #fa0050;
+    border: 5px solid #00d9fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    border-radius: 10px;
+}
+.pedidos p {
+    background-color: #fa0050;
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    font-weight: 600;
+    ;
+
+}
+#pedidosCargados {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-around;
+}
+.km-entrega , .km-retiro {
+    width: 300px;
+    height: 30px;
+    background-color: #FFF;
+    margin: 5px 0;
+    border-radius: 5px;
+    outline: none;
+}
+.ocultar {
+    display: none;
+    transition: 1s;
+}
+
+.pedido-btn {
+    width: 150px;
+    height: 20px;
+    background-color: #661ec8;
+}
