@@ -1,6 +1,8 @@
 const inputRank = document.querySelector("input.input-rnk");
 const inputBtn = document.querySelector("button.input-btn");
+    inputBtn.innerText = "Siguiente"
 const botonPedidos = document.querySelector("button.pedido-btn")
+    botonPedidos.innerText = "Cargar pedido."
 const pedidosCargados = document.querySelector("#pedidosCargados");
 const regex = /^[a-zA-Z]+$/;
 const inputRetiro = document.querySelector("input.km-retiro");

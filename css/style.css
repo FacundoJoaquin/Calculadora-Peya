@@ -140,11 +140,7 @@ form  {
     ;
 
 }
-#pedidosCargados {
-    display: flex;
-    max-width: 100%;
-    justify-content: space-around;
-}
+
 .km-entrega , .km-retiro {
     width: 300px;
     height: 30px;
@@ -161,7 +157,7 @@ form  {
 .pedido-btn {
     width: 150px;
     height: 20px;
-    background-color: #661ec8;
+    background-color: #00d9fc;
 }
 
 
