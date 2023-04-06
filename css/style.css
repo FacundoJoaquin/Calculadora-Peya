@@ -238,5 +238,9 @@ form  {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    cursor: pointer;
+}
+.logo {
+    width: auto;
+    display: flex;
+    justify-content: center;
 }

@@ -57,7 +57,7 @@ function cobroTotal() {
     totalNeto = totalRetiro + totalEntrega + puntoEntrega + puntoRetiro;
     if (totalEntrega > 0 && totalRetiro > 0) {
         let numero = arrayPedido.length + 1;
-        // let numeroPedido = JSON.parse(localStorage.getItem("pedidos")) me gustaria recuperar los numeros y que vaya contando
+        // let numeroPedido = JSON.parse(localStorage.getItem("pedidos")) me gustaria que el contador de pedidos no se reinicie y lo tome desde el storage al anterior
         // let numero = numeroPedido.numero;
         let kilometros = document.querySelector("input.km-entrega").value;
         let nuevoPedido = {numero: numero, kilometros: kilometros, totalNeto: totalNeto};
