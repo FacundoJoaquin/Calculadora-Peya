@@ -5,110 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1ra Pre-Entrega Joaquin Facundo</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script defer src="js/templates.js"></script>
     <script defer src="js/main.js"></script>
-        <script defer src="js/dom.js"></script>
+    <script defer src="js/dom.js"></script>
 </head>
 
 <body>
-    <header>
-        <h1>Primera Pre-Entrega Facundo Joaquin</h1>
-    </header>
-
-    <body>
-        <div class="pedidos">
-            <p>Pedido Nro: <br></p>
-            <p>Kilometros recorridos: <br></p>
-            <p>Monto abonado: <br></p>
-        </div>
-        <div>
-            <form id="formulario">
-                <input class="input-name" type="text" placeholder="Nombre" required>
-                <input class="input-rnk" type="text" placeholder="Ranking" required>
-                <button class="input-btn" type="submit" value="enviar">
-            </form>
-        </div>
-        <div class="form-pedidos ocultar">
-            <form id="pedidos">
-                <input type="text" class="km-retiro" placeholder="Distancia hasta punto de retiro">
-                <input type="text" class="km-entrega" placeholder="Distancia hasta punto de entrega">
-                <button class="pedido-btn" type="submit" value="enviar">
-            </form>
-        </div>
-        <div id="pedidosCargados">
-
-        </div>
-        <div class="explicacion">
-            <p>¿Cómo andas? espero que bien, te comento, yo actualmente trabajo para PedidosYa, sinceramente entre las
-                miles falencias que tiene la aplicación, uno de los peores es la falta de claridad al momento del pago,
-                recién al momento de entregarlo nos enteramos cuanto cobraremos por el mismo. <br>
-                Entonces pensé, que mejor que basar mi primera pre-entrega en esto para entender las bases de JS.</p>
-            <p>Te cuento también, tenemos varias variables para determinar el monto que nos corresponde, esas variables
-                las puse como constantes. Acá te las voy a dejar igual para que las veas en el html también.</p>
-        </div>
-        <div class="separador"></div>
-        <div class="explicacion">
-            <p>Buenos días/tardes/noche, hice las modificaciones que me corregiste en la primera Pre-Entrega, también simplifiqué un poquito el código y ahora ejecutando únicamente la funcion <span>rank()</span> en la consola JS te va a guiar. No la llamo yo a la función porque quería que primero veas el HTML. <br>
-                Yo sé que no puse funciones de orden superior, pero no sabía como hacerla encajar y que sean realmente funcionales, se me ocurrió hacer un filtrado para que la consola me devuelva los pedidos mas largos, o los mejores pagados pero me pareció un poco redundante ya que la consola te va imprimiendo todo, cuando sea entrega con DOM si los quiero colocar para que se refleje de alguna forma bonita.</p>
-    
-                </div>
-        </div>
-        <h2>PAGOS</h2>
-        <section class="valores">
-            <div class="nombreValores">
-                <div>
-                    <p>Punto de entrega</p>
-                </div>
-                <p class="monto">90</p>
-            </div>
-            <div class="nombreValores">
-                <div>
-                    <p>Punto de retiro</p>
-                </div>
-                <p class="monto">55</p>
-            </div>
-            <div class="nombreValores">
-                <div>
-                    <p>KM al punto de retiro</p>
-                </div>
-                <p class="monto">30</p>
-            </div>
-            <div class="nombreValores">
-                <div>
-                    <p>KM al punto de entrega</p>
-                </div>
-                <p class="monto">55</p>
-            </div>
-        </section>
-        
-        <section class="grupos">
-            <div>
-                <p>Grupo</p>
-                <p>$ POR KM AL PUNTO DE ENTREGA</p>
-            </div>
-            <div>
-                <p>1</p>
-                <p>$14</p>
-            </div>
-            <div>
-                <p>2</p>
-                <p>$12</p>
-            </div>
-            <div>
-                <p>3</p>
-                <p>$8</p>
-            </div>
-            <div>
-                <p>4</p>
-                <p>$8</p>
-            </div>
-        </section>
-    </body>
+    <h1>
+        Pre-Entrega 3 Joaquin Facundo.
+    </h1>
+<main>
+    <div class="explicacion">
+        <p>¿Cómo andas? espero que bien, te comento, yo actualmente trabajo para PedidosYa, sinceramente entre las
+            miles falencias que tiene la aplicación, uno de los peores es la falta de claridad al momento del pago,
+            recién al momento de entregarlo nos enteramos cuanto cobraremos por el mismo. <br>
+            Entonces pensé, que mejor que basar mi primera pre-entrega en esto para entender las bases de JS.</p>
+        <p>El valor del pedido se compone de distintas constantes, como el hecho de retirar y entregar el pedido, y de los kilometros que recorras tanto para ir a buscarlo como para llevarlo, pero estos kilometrajes no valen lo mismo. <br>
+        Mas allá de la poca claridad a la hora de saber cuanto vamos a cobrar, no te voy a mentir que es un trabajo nefasto, entonces mi objetivo es basicamente armar una calculadora para saber cuanto nos pagan por cada pedido antes de llevarlo. <br>
+    Mi idea es para la entrega final que esté esta página de explicación, que esté la calculadora y estoy intentado replicar la interfaz de la app verdadera de Pedidos Ya, pero bueno sinceramente esta complicadisimo, te la dejo en assets por si queres verla y decirme no flaco no te compliques jaja. <br>
+Sin más, clickea en el logo.</p>
+    </div>
+    <div class="logo">
+        <a href="calculadora.html"><img src="assets/peya.png" class="peya" alt="boton Pedidos Ya"></a>
+    </div>
+</main>
 </body>
 
 </html>

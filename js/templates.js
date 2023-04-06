@@ -1,7 +1,7 @@
-function pedidoHTML(pedido){
-    return `<div class="pedidos">
-    <p>Pedido Nro:<br> ${pedido.numero}</p>
-    <p>Kilometross:<br> ${pedido.kilometros} </p>
-    <p>Monto abonado:<br> $${pedido.totalNeto}</p>
-</div>`
+function pedidoHTML(nuevoPedido){
+    return `<div class="pedidos-realizados">
+                <p>${nuevoPedido.numero}</p>
+                <p>${nuevoPedido.kilometros}km</p>
+                <p>$${nuevoPedido.totalNeto}</p>
+            </div>`
 }

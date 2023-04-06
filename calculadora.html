@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3ra Pre-Entrega Joaquin Facundo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/templates.js"></script>
+    <script src="js/main.js"></script>
+    <script defer src="js/dom.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Tercera Pre-Entrega Facundo Joaquin</h1>
+    </header>
+
+    <body>
+        <div>
+            <form id="formulario">
+                <input class="input-name" type="text" placeholder="Nombre" required>
+                <input class="input-rnk" type="text" placeholder="Ranking" required>
+                <button class="input-btn" type="submit" value="enviar">
+            </form>
+        </div>
+        <div class="form-pedidos ocultar">
+            <form id="pedidos">
+                <input type="text" class="km-retiro" placeholder="Distancia hasta punto de retiro">
+                <input type="text" class="km-entrega" placeholder="Distancia hasta punto de entrega">
+                <button class="pedido-btn" type="submit" value="enviar">
+            </form>
+        </div>
+        <section class="section-pedidos">
+            <div class="tabla-pedidos">
+                <p>Pedido numero</p>
+                <p>Distancia recorrida</p>
+                <p>Monto a cobrar</p>
+            </div>
+            <div class="pagos">
+            </div>
+            <div class="recuperar">
+                <p>Deseas ver todos los pedidos realizados?</p>
+            </div>
+        </section>
+
+
+        <h2>PAGOS</h2>
+        <section class="valores">
+            <div class="nombreValores">
+                <div>
+                    <p>Punto de entrega</p>
+                </div>
+                <p class="monto">90</p>
+            </div>
+            <div class="nombreValores">
+                <div>
+                    <p>Punto de retiro</p>
+                </div>
+                <p class="monto">55</p>
+            </div>
+            <div class="nombreValores">
+                <div>
+                    <p>KM al punto de retiro</p>
+                </div>
+                <p class="monto">30</p>
+            </div>
+            <div class="nombreValores">
+                <div>
+                    <p>KM al punto de entrega</p>
+                </div>
+                <p class="monto">55</p>
+            </div>
+        </section>
+        
+        <section class="grupos">
+            <div>
+                <p>Grupo</p>
+                <p>$ POR KM AL PUNTO DE ENTREGA</p>
+            </div>
+            <div>
+                <p>1</p>
+                <p>$14</p>
+            </div>
+            <div>
+                <p>2</p>
+                <p>$12</p>
+            </div>
+            <div>
+                <p>3</p>
+                <p>$8</p>
+            </div>
+            <div>
+                <p>4</p>
+                <p>$8</p>
+            </div>
+        </section>
+    </body>
+</body>
+
+</html>

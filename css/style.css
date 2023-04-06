@@ -163,3 +163,80 @@ form  {
     height: 20px;
     background-color: #661ec8;
 }
+
+
+.pagos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.section-pedidos {
+    margin: 20px 0;
+}
+.tabla-pedidos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    background-color: #661ec8;
+    width: auto;
+    height: 25px;
+}
+
+.tabla-pedidos p {
+    background-color: #661ec8;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.pedidos-realizados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    background-color: #ffe438;
+    height: 25px;
+    border: 1px solid #fff;
+}
+
+.pedidos-realizados p{
+    background-color: #ffe438;
+    color: #000;
+    font-weight: 600;
+}
+
+.tabla-pedidos p:first-child , .tabla-pedidos p:nth-child(2) , .tabla-pedidos p:last-child {
+    width: 33%;
+    text-align: center;
+}
+
+.pedidos-realizados p:first-child , .pedidos-realizados p:nth-child(2) , .pedidos-realizados p:last-child {
+    width: 33%;
+    text-align: center;
+}
+
+.recuperar {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #661ec8;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.recuperar p {
+    background-color: #661ec8;
+    color: #FFF;
+    font-weight: 600;
+    text-align: center;
+}
+
+.logo , .logo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+}
