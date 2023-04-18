@@ -34,18 +34,18 @@ let suma;
 
 function cobroPorRetiro() {
     let retiroKm = parseFloat(document.querySelector("input.km-retiro").value);
-    if (isNaN(retiroKm)) {
+    return isNaN(retiroKm) ? alert("Ingresa un numero valido") : retiroKm * kmPuntEnt;
+    /*if (isNaN(retiroKm)) {
         alert("Ingresa un numero valido");
         return;
     } else {
         let totalRetiro = retiroKm * kmPuntRet;
         return totalRetiro;
-    }
+    } */
 }
 function cobroPorEntrega() {
     let entregaKm = parseFloat(document.querySelector("input.km-entrega").value);
-    let totalEntrega = entregaKm * cobroKM;
-    return totalEntrega;
+    return isNaN(entregaKm) ? alert("Ingresa un numero valido") : entregaKm * cobroKM
 }
 let arrayPedido = [];
 let totalRetiro;
@@ -63,7 +63,7 @@ function cobroTotal() {
         let nuevoPedido = {numero: numero, kilometros: kilometros, totalNeto: totalNeto};
         arrayPedido.push(nuevoPedido);
         cargarPedidos(arrayPedido);
-        cargarStoragePedidos();
+        cargarStoragePedidos(nuevoPedido);
     } else {
         return
     }
@@ -73,20 +73,23 @@ function cobroTotal() {
 
 
 function cargarStoragePedidos() {
-    if (arrayPedido.length > 0) {
-        localStorage.setItem("pedidos", JSON.stringify(arrayPedido));
+    arrayPedido.length > 0 && localStorage.setItem("pedidos", JSON.stringify(arrayPedido));
     }
-}
+
 function recuperarStoragePedidos() {
-    let pedidosStorage = JSON.parse(localStorage.getItem("pedidos"));
-    if (pedidosStorage && pedidosStorage.length > 0){
+    const pedidosStorage = JSON.parse(localStorage.getItem("pedidos"));
+    const { numero } = pedidosStorage;
+    console.log(numero)
+    pedidosStorage && pedidosStorage.length > 0 && cargarPedidos(pedidosStorage) && pedidosStorage.forEach(pedido=> {arrayPedido.push(pedido)});
+    }
+/*     if (pedidosStorage && pedidosStorage.length > 0){
         cargarPedidos(pedidosStorage);
         pedidosStorage.forEach(pedido=> {
             arrayPedido.push(pedido);
 
         })
-    }
-}
+    } */
+
 /* suma el total de los pedidos */
 let totalCobro = 0;
 function sumarNetos() {
