@@ -78,8 +78,6 @@ function cargarStoragePedidos() {
 
 function recuperarStoragePedidos() {
     const pedidosStorage = JSON.parse(localStorage.getItem("pedidos"));
-    const { numero } = pedidosStorage;
-    console.log(numero)
     pedidosStorage && pedidosStorage.length > 0 && cargarPedidos(pedidosStorage) && pedidosStorage.forEach(pedido=> {arrayPedido.push(pedido)});
     }
 /*     if (pedidosStorage && pedidosStorage.length > 0){
