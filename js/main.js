@@ -32,22 +32,39 @@ function rank(ranking) {
 let suma;
 
 
+function alertaKilometraje() {
+    Swal.fire({
+        icon: 'warning',
+        iconColor: 'red',
+        title: 'Error',
+        text: 'Ingresa un kilometraje valido',
+      })
+}
+
 function cobroPorRetiro() {
     let retiroKm = parseFloat(document.querySelector("input.km-retiro").value);
-    return isNaN(retiroKm) ? alert("Ingresa un numero valido") : retiroKm * kmPuntEnt;
-    /*if (isNaN(retiroKm)) {
-        alert("Ingresa un numero valido");
-        return;
-    } else {
-        let totalRetiro = retiroKm * kmPuntRet;
-        return totalRetiro;
-    } */
+    return isNaN(retiroKm) ? alertaKilometraje() : retiroKm * kmPuntEnt;
 }
 function cobroPorEntrega() {
     let entregaKm = parseFloat(document.querySelector("input.km-entrega").value);
-    return isNaN(entregaKm) ? alert("Ingresa un numero valido") : entregaKm * cobroKM
+    return isNaN(entregaKm) ? alertaKilometraje() : entregaKm * cobroKM
 }
-let arrayPedido = [];
+const arrayPedido =  [];
+
+function toastPedidoAgregado() {
+    Toastify({
+        text: "Pedido agregado",
+        className: "info",
+        gravity: "bottom",
+        position: "right",
+        duration: 1500,
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
+}
+
+/* const arrayPedido = JSON.stringify(localStorage.getItem('pedidos') || []); */
 let totalRetiro;
 let totalEntrega;
 let totalNeto;
@@ -64,6 +81,7 @@ function cobroTotal() {
         arrayPedido.push(nuevoPedido);
         cargarPedidos(arrayPedido);
         cargarStoragePedidos(nuevoPedido);
+        toastPedidoAgregado();
     } else {
         return
     }
@@ -72,13 +90,14 @@ function cobroTotal() {
 
 
 
-function cargarStoragePedidos() {
-    arrayPedido.length > 0 && localStorage.setItem("pedidos", JSON.stringify(arrayPedido));
+function cargarStoragePedidos() { //carga los pedidos en localstorage
+    arrayPedido.length > 0 ? localStorage.setItem("pedidos", JSON.stringify(arrayPedido)) : [];
     }
 
 function recuperarStoragePedidos() {
-    const pedidosStorage = JSON.parse(localStorage.getItem("pedidos"));
-    pedidosStorage && pedidosStorage.length > 0 && cargarPedidos(pedidosStorage) && pedidosStorage.forEach(pedido=> {arrayPedido.push(pedido)});
+    const recuperoArray = JSON.parse(localStorage.getItem("pedidos"));
+    arrayPedido.push(...recuperoArray)
+    cargarPedidos(recuperoArray)
     }
 /*     if (pedidosStorage && pedidosStorage.length > 0){
         cargarPedidos(pedidosStorage);
@@ -89,14 +108,14 @@ function recuperarStoragePedidos() {
     } */
 
 /* suma el total de los pedidos */
-let totalCobro = 0;
+/* let totalCobro = 0;
 function sumarNetos() {
     arrayPedido.forEach((pedido)=>{
         totalCobro += pedido.totalNeto;
     })
 }
 totalCobro = sumarNetos();
-
+ */
 
 
 

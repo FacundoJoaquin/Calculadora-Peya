@@ -2,8 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #fa0050;
     font-family: 'Montserrat', sans-serif;
+}
+header , body {
+    background-color: #fa0050;
 }
 h1 {
     text-align: center;
@@ -211,7 +213,7 @@ form  {
     text-align: center;
 }
 
-.recuperar {
+.borrarPedidos {
     width: 200px;
     height: 50px;
     display: flex;
@@ -223,7 +225,7 @@ form  {
     margin-left: 50px;
     cursor: pointer;
 }
-.recuperar p {
+.borrarPedidos p {
     background-color: #661ec8;
     color: #FFF;
     font-weight: 600;
