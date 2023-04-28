@@ -5,37 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Proyecto Final | Facundo Joaquin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="js/templates.js"></script>
-    <script src="js/main.js"></script>
-    <script defer src="js/dom.js"></script>
+    <script src="js/alerts.js"></script>
+    <script defer src="js/problema.js"></script>
+
 </head>
 
 <body>
-    <h1>
-        Pre-Entrega 3 Joaquin Facundo.
-    </h1>
-<main>
-    <div class="explicacion">
-        <p>¿Cómo andas? espero que bien, te comento, yo actualmente trabajo para PedidosYa, sinceramente entre las
-            miles falencias que tiene la aplicación, uno de los peores es la falta de claridad al momento del pago,
-            recién al momento de entregarlo nos enteramos cuanto cobraremos por el mismo. <br>
-            Entonces pensé, que mejor que basar mi primera pre-entrega en esto para entender las bases de JS.</p>
-        <p>El valor del pedido se compone de distintas constantes, como el hecho de retirar y entregar el pedido, y de los kilometros que recorras tanto para ir a buscarlo como para llevarlo, pero estos kilometrajes no valen lo mismo. <br>
-        Mas allá de la poca claridad a la hora de saber cuanto vamos a cobrar, no te voy a mentir que es un trabajo nefasto, entonces mi objetivo es basicamente armar una calculadora para saber cuanto nos pagan por cada pedido antes de llevarlo. <br>
-    Mi idea es para la entrega final que esté esta página de explicación, que esté la calculadora y estoy intentado replicar la interfaz de la app verdadera de Pedidos Ya, pero bueno sinceramente esta complicadisimo, te la dejo en assets por si queres verla y decirme no flaco no te compliques jaja. <br>
-Sin más, clickea en el logo.</p>
+    <h1>Proyecto Final</h1>
+    <form id="formProblemas">
+        <input type="text" placeholder="Ingresá tu nombre" class="input-nombre" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div class="descripcionProblema">
     </div>
-    <div class="logo">
-        <a href="calculadora.html"><img src="assets/peya.png" class="peya" alt="boton Pedidos Ya"></a>
-    </div>
-</main>
+    <section class="section-click">
+        <div class="ocultar" id="clickeame">
+            <p>Clickeame, te cuento más.</p>
+        </div>
+    </section>
+    <section class="section-problems ocultar">
+        <h2 class="h2-problemas">Alguno de los problemas</h2>
+        <div id="divProblems">
+            <div class="problemas" id="p1">
+                <img src="assets/map.jpeg" alt="">
+                <p>Las distancias son lineales, no importa el sentido de la calle, un viaje de 4km te lo pueden llegar a
+                    reducir a 3.</p>
+            </div>
+            <div class="problemas ocultar" id="p2">
+                <img src="assets/repartidor.jpeg" alt="">
+                <p>Falta de apoyo por parte de la empresa, en caso de un pedido falso o imposible de completar, quedas a
+                    la deriva del local si quiere devolverte la plata.</p>
+            </div>
+            <div class="problemas ocultar" id="p3">
+                <img src="assets/pagos.jpeg" alt="">
+                <p>Pero el problema más grave es que no conocemos el valor del pago hasta el momento de finalizado,
+                    mostrando únicamente en su interfaz las distancias recorridas desde el retiro del pedido hasta su
+                    entrega.</p>
+            </div>
+
+        </div>
+        <button id="next-problem" class="next-problem">
+            <p>Siguiente problema</p>
+        </button>
+    </section>
 </body>
 
 </html>

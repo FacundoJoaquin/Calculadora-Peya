@@ -1,17 +1,18 @@
-const puntoEntrega = 90;
-const puntoRetiro = 55;
-const kmPuntRet = 30;
-const kmPuntEnt = 55;
+const puntoEntrega = 90; //pago por entregar pedido
+const puntoRetiro = 55; //pago por retirarlo
+const kmPuntRet = 30; //valor base del kilometraje para retirar el pedido
+const kmPuntEnt = 55; //valor base del kilometraje para entregar el pedido
+const arrayPedido = [];
+const URL = 'js/pedidos.json'
 
-
-let continuar;
 
 function cobroKmRanking() {
     let ranking = inputRank.value;
+    let cobroKM = kmPuntEnt
     rank(ranking);
-    return cobroKmRanking
+    return cobroKM
 }
-function rank(ranking) {
+function rank(ranking) {  //valor del kilometraje al punto de entrega dependiendo del ranking
     switch (ranking) {
         case "1":
             cobroKM = kmPuntEnt + 14;
@@ -29,93 +30,124 @@ function rank(ranking) {
     }
     return cobroKM
 }
-let suma;
 
-
-function alertaKilometraje() {
-    Swal.fire({
-        icon: 'warning',
-        iconColor: 'red',
-        title: 'Error',
-        text: 'Ingresa un kilometraje valido',
-      })
-}
-
-function cobroPorRetiro() {
+function cobroPorRetiro() { //monto a cobrar por retirar el pedido en base a la distancia
     let retiroKm = parseFloat(document.querySelector("input.km-retiro").value);
     return isNaN(retiroKm) ? alertaKilometraje() : retiroKm * kmPuntEnt;
 }
-function cobroPorEntrega() {
+function cobroPorEntrega() { //monto a cobrar por entregar el pedido en base a la distancia de retiro hasta punto de entrega
     let entregaKm = parseFloat(document.querySelector("input.km-entrega").value);
     return isNaN(entregaKm) ? alertaKilometraje() : entregaKm * cobroKM
 }
-const arrayPedido =  [];
 
-function toastPedidoAgregado() {
-    Toastify({
-        text: "Pedido agregado",
-        className: "info",
-        gravity: "bottom",
-        position: "right",
-        duration: 1500,
-        style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
-        }
-    }).showToast();
-}
-
-/* const arrayPedido = JSON.stringify(localStorage.getItem('pedidos') || []); */
 let totalRetiro;
 let totalEntrega;
 let totalNeto;
-function cobroTotal() {
+
+function identificadorPedido() {
+    let id = Math.floor(Math.random() * 10000).toString().padStart(4, '0')
+    return id
+}
+
+function cobroTotal() { //determina el pago del pedido
     totalRetiro = cobroPorRetiro();
     totalEntrega = cobroPorEntrega();
     totalNeto = totalRetiro + totalEntrega + puntoEntrega + puntoRetiro;
-    if (totalEntrega > 0 && totalRetiro > 0) {
-        let numero = arrayPedido.length + 1;
-        // let numeroPedido = JSON.parse(localStorage.getItem("pedidos")) me gustaria que el contador de pedidos no se reinicie y lo tome desde el storage al anterior
-        // let numero = numeroPedido.numero;
-        let kilometros = document.querySelector("input.km-entrega").value;
+    if (totalEntrega > 0 && totalRetiro > 0) { //crea el pedido
+        let numero = identificadorPedido();
+        let kmRetiro = parseFloat(document.querySelector("input.km-retiro").value);
+        let kmEntrega = parseFloat(document.querySelector("input.km-entrega").value);
+        let kilometros = parseFloat(kmRetiro + kmEntrega).toFixed(2);
         let nuevoPedido = {numero: numero, kilometros: kilometros, totalNeto: totalNeto};
         arrayPedido.push(nuevoPedido);
         cargarPedidos(arrayPedido);
-        cargarStoragePedidos(nuevoPedido);
+        guardarStoragePedidos(nuevoPedido);
         toastPedidoAgregado();
     } else {
         return
     }
 }
 
+function cargarPedidos() { //renderiza los pedidos en .pagos
+    pagos.innerHTML = "";
+    if (arrayPedido.length > 0) {
+        arrayPedido.forEach(pedido => {
+            pagos.innerHTML += pedidoHTML(pedido);
+            botonesBorrar();
+            divPago.innerText = "";
+        });
+    }
+} 
 
+function botonesBorrar() { //botones de borrar pedidos en .pagos
+    const botones = document.querySelectorAll("button.boton-delete")
+    if (botones !== null) {
+        for (boton of botones) {
+            boton.addEventListener("click", (e)=> {
+                let index = arrayPedido.findIndex(pedido => pedido.numero === parseInt(e.target.id));
+                arrayPedido.splice(index, 1)
+                cargarPedidos()
+                limpiarStoragePedidos()
+                guardarStoragePedidos()
+            })
+        }
+    }
+}
 
+function borrar() { //limpia los pedidos de localstorage y de .pedidos
+    localStorage.setItem("pedidos", JSON.stringify([]));
+    pagos.innerHTML = "";
+    location.reload();
+}
 
-function cargarStoragePedidos() { //carga los pedidos en localstorage
+function guardarStoragePedidos() { //guarda los pedidos en localstorage
     arrayPedido.length > 0 ? localStorage.setItem("pedidos", JSON.stringify(arrayPedido)) : [];
     }
 
-function recuperarStoragePedidos() {
-    const recuperoArray = JSON.parse(localStorage.getItem("pedidos"));
-    arrayPedido.push(...recuperoArray)
-    cargarPedidos(recuperoArray)
+ function recuperarStoragePedidos() { //recupera storage y lo imprime en pantalla, tiene que ser un evento controlado
+    let recuperoArray = JSON.parse(localStorage.getItem("pedidos")) || [];
+    arrayPedido.push(...recuperoArray);
+    cargarPedidos(arrayPedido);
+    } 
+
+
+
+    function plata() { //itero arrayPedidos y obtengo el total a cobrar
+        let dinero = 0;
+        arrayPedido.forEach(pedido => {
+            dinero += parseInt(pedido.totalNeto);
+        });
+        return dinero;
     }
-/*     if (pedidosStorage && pedidosStorage.length > 0){
-        cargarPedidos(pedidosStorage);
-        pedidosStorage.forEach(pedido=> {
-            arrayPedido.push(pedido);
-
-        })
-    } */
-
-/* suma el total de los pedidos */
-/* let totalCobro = 0;
-function sumarNetos() {
-    arrayPedido.forEach((pedido)=>{
-        totalCobro += pedido.totalNeto;
-    })
+    
+const arrayHistorial = [];
+function renderizarHistorial(){ 
+    historial.innerHTML = "";
+    if (arrayHistorial.length > 0) {
+        arrayHistorial.forEach(pedido => {
+            historial.innerHTML += historialHTML(pedido);
+            botonesBorrar();
+        });
+    }
 }
-totalCobro = sumarNetos();
- */
+
+    function pedidosHistorial(){
+        fetch(URL)
+        .then(response => response.json())
+        .then(data =>arrayHistorial.push(...data))
+        .then(data => {
+            renderizarHistorial(arrayHistorial);
+        })
+        .catch(error => errorCargarFetch(error)) 
+        }
+
+
+        
+let historialFetch = pedidosHistorial();
+
+function limpiarStoragePedidos() { //vacia localStorage "pedidos"
+    localStorage.removeItem("pedidos");
+}
 
 
 

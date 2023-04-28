@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3ra Pre-Entrega Joaquin Facundo</title>
+    <title>Proyecto Final Facundo Joaquin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -15,27 +15,28 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/templates.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/alerts.js"></script>
     <script defer src="js/dom.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>Tercera Pre-Entrega Facundo Joaquin</h1>
+        <h1>Proyecto Final / Facundo Joaquin</h1>
     </header>
 
     <body>
         <div>
             <form id="formulario">
-                <input class="input-name" type="text" placeholder="Nombre" required>
+                <p>Primero, simulemos tu ranking</p>
                 <input class="input-rnk" type="text" placeholder="Ranking" required>
-                <button class="input-btn" type="submit" value="enviar">
+                <button class="input-btn" type="submit" value="enviar"> <!-- pasar a butons -->
             </form>
         </div>
         <div class="form-pedidos ocultar">
             <form id="pedidos">
                 <input type="text" class="km-retiro" placeholder="Distancia hasta punto de retiro">
                 <input type="text" class="km-entrega" placeholder="Distancia hasta punto de entrega">
-                <button class="pedido-btn" type="submit" value="enviar">
+                <button class="pedido-btn" type="submit" value="enviar"> <!-- eran buttons -->
             </form>
         </div>
         <section class="section-pedidos">
@@ -43,15 +44,32 @@
                 <p>Pedido numero</p>
                 <p>Distancia recorrida</p>
                 <p>Monto a cobrar</p>
+                <p>Eliminar</p>
             </div>
             <div class="pagos">
             </div>
+            <button class="blur">Recuperar historial de pedidos de la última sesión</button>
             <div class="borrarPedidos">
                 <p>¿Deseas borrar el historial de pedidos?</p>
             </div>
         </section>
 
 
+
+        <div class="total">¿Querés saber cuanto vas a cobrar?</div>
+        <div class="div-pago"></div>
+        <h2>HISTORIAL</h2>
+        <section class="section-historial difuminado">
+            <div class="tabla-pedidos">
+                <p>Pedido numero</p>
+                <p>Distancia recorrida</p>
+                <p>Monto a cobrar</p>
+            </div>
+            <div class="historial"><!-- aca se renderiza el historial --></div>
+        </section>
+        <div class="sacar-difuminado">
+            <p>Ver historial de la semana pasada</p>
+        </div>
         <h2>PAGOS</h2>
         <section class="valores">
             <div class="nombreValores">
