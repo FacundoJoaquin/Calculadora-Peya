@@ -78,20 +78,3 @@ const formPedidos = document.querySelector("#pedidos"); //creacion de pedido
 
 
 
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    /* const botones = document.getElementById */
-
-
-
-

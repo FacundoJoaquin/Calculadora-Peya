@@ -26,7 +26,7 @@ function alertaDatos() {
         iconColor: 'red',
         title: 'Error',
         text: 'Error en los datos ingresados, por favor verificar.',
-        footer: 'Ingresa tu nombre y tu ranking, recordá que este puede ser de 1 a 7.'
+        footer: 'Ingresa tu ranking, recordá que este puede ser de 1 a 7.'
       })
 }
 
